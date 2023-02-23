@@ -8,6 +8,7 @@ Note: I changed files a bit when uploading, so please make issue if you encounte
 2. Modify below:
   - `docker-compose.yml`: extra_hosts: type docker host's IP (this is for Dash, see below)
   - `configs/jupyter_server_config.py`: hashed_password: replace to your own
+  - `Dockerfile`: timezone: if you living in other than Asia/Tokyo.
 3. `docker compose build --build-arg UID=$(id -u) --build-arg GID=$(id -g)`
 3. `docker compose up -d`
 4. Access http://localhost:8888/ and type your PW

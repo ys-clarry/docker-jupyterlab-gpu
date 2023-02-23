@@ -36,8 +36,7 @@ RUN ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
 # ---- USER ENV SETUP ---- #
 USER jupyter
 WORKDIR /home/jupyter
-RUN ln -s /mnt /home/jupyter/mnt && \
-    ln -s /shared /home/jupyter/shared
+RUN ln -s /shared /home/jupyter/shared
 ENV PATH /home/jupyter/.local/bin:$PATH
 
 # > DEFAULT CONFIGS < #

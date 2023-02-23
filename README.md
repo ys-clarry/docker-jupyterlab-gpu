@@ -14,10 +14,12 @@ Note: I changed files a bit when uploading, so please make issue if you encounte
 4. Access http://localhost:8888/ and type your PW
 
 ### Tips
-0. Your home folder in host Linux is mounted in `/shared` and `/home/shared` (latter is symlink)
-1. [Micromamba](https://github.com/mamba-org/mamba) is installed instead of conda (alias is set).
+0. Your home folder in host Linux is mounted in `/shared` and `/home/shared` (latter is symlink of former)
+1. [Micromamba](https://github.com/mamba-org/mamba) is installed instead of conda (conda -> micromamba alias is set).
 2. Using [Dash](https://dash.plotly.com/) is tricky but possible, like below:
 ```
 app = JupyterDash(__name__, server_url='http://YOUR-DOCKER-HOST:EXPOSED-PORT/')
 app.run_server(mode='jupyterlab', host="0.0.0.0", port=EXPOSED-PORT)
+# port 9001-9004 is exposed as default
 ```
+3. Cache of pip and micromamba is shared to host's ones. If you don't like them, comment out in `docker-compose.yml`.

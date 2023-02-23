@@ -2,7 +2,11 @@ version: "3"
 
 services:
   jupyter:
-    build: .
+    build:
+      dockerfile: "./Dockerfile"
+      args:
+        - UID=${UID:-1000}
+        - GID=${GID:-1000}
     
     hostname: jupyter-docker-gpu    
     tty: true

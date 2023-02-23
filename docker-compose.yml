@@ -1,0 +1,36 @@
+version: "3"
+
+services:
+  jupyter:
+    build: .
+    
+    hostname: jupyter-docker-gpu    
+    tty: true
+    ipc: host
+    restart: always
+
+    extra_hosts:
+      - "gateway:192.168.0.100" # Change to Host's IP
+
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+              
+    command: ["jupyter", "lab", "--port", "8888"]
+    working_dir: '/home/jupyter'
+    
+    ports:
+      - 8888:8888
+      - 9001:9001
+      - 9002:9002
+      - 9003:9003
+      - 9004:9004
+      
+    volumes:
+      - ~/:/shared
+      - ~/.cache/pip:/home/jupyter/.cache/pip
+      - ~/micromamba/pkgs:/home/jupyter/micromamba/pkgs

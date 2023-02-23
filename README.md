@@ -1,5 +1,7 @@
 ## Docker scripts for making jupyter lab + GPU container on Linux
 
+Note: I changed files a bit when uploading, so please make issue if you encountered an error.
+
 ### Usage:
 0. Setup `nvidia-container-toolkit` and `docker` into your host Linux. (No CUDA needed in host.)
 1. Clone this repo

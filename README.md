@@ -18,8 +18,9 @@ Note: I changed files a bit when uploading, so please make issue if you encounte
 1. [Micromamba](https://github.com/mamba-org/mamba) is installed instead of conda (conda -> micromamba alias is set).
 2. Using [Dash](https://dash.plotly.com/) is tricky but possible, like below:
 ```
-app = JupyterDash(__name__, server_url='http://YOUR-DOCKER-HOST:EXPOSED-PORT/') # YOUR-DOCKER-HOST can be `gateway` if you specified in `docker-compose.yml`
+app = JupyterDash(__name__, server_url='http://YOUR-DOCKER-HOST:EXPOSED-PORT/')
 app.run_server(mode='jupyterlab', host="0.0.0.0", port=EXPOSED-PORT)
+# YOUR-DOCKER-HOST can be `gateway` if you specified in `docker-compose.yml`
 # port 9001-9004 is exposed as default
 ```
 3. Cache of pip and micromamba is shared to host's ones. If you don't like them, comment out in `docker-compose.yml`.

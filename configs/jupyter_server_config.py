@@ -8,6 +8,7 @@ c.PasswordIdentityProvider.hashed_password = (
 #### PLEASE CHANGE THIS TO YOUR ID/PW ###
 )
 
+# Not to shutdown Jupyter from Web browser; If you need this, comment out these
 c.ServerApp.open_browser = False
 c.ServerApp.quit_button = False
 

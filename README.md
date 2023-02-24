@@ -21,6 +21,6 @@ Note: I changed files a bit when uploading, so please make issue if you encounte
 app = JupyterDash(__name__, server_url='http://YOUR-DOCKER-HOST:EXPOSED-PORT/')
 app.run_server(mode='jupyterlab', host="0.0.0.0", port=EXPOSED-PORT)
 # YOUR-DOCKER-HOST can be `gateway` if you specified in `docker-compose.yml`
-# port 9001-9004 is exposed as default
+# port 9000-9004 is exposed as default
 ```
 3. Cache of pip and micromamba is shared to host's ones. If you don't like them, comment out in `docker-compose.yml`.

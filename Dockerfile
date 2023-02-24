@@ -21,7 +21,6 @@ RUN apt-get update && \
                    cmake build-essential curl git \
                    vim less \
                    python3 python3-distutils python3-dev \
-                   ffmpeg feh
 
 # > NODEJS PREPARE < #
 RUN curl -sL https://deb.nodesource.com/setup_18.x | bash - && \

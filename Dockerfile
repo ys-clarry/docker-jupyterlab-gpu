@@ -12,7 +12,6 @@ RUN useradd jupyter -m -u $UID -g $GID
 RUN mkdir /shared && chown jupyter:jupyter /shared
 
 # ---- SOFTWARES ---- #
-
 # > APT < #
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && \
@@ -22,7 +21,7 @@ RUN apt-get update && \
                    vim less \
                    python3 python3-distutils python3-dev
 
-# > NODEJS PREPARE < #
+# > NODEJS < #
 RUN curl -sL https://deb.nodesource.com/setup_18.x | bash - && \
     apt -y install nodejs
 
@@ -70,8 +69,9 @@ RUN curl -O micro.mamba.pm/install.sh && bash install.sh && rm install.sh
 # ---- PORTS ---- #
 # > FOR JUPYTER < #
 EXPOSE 8888
-# > FOR TEMPORARY USES < #
-EXPOSE 9000 9001 9002 9003 9004 9005 9006 9007 9008 9009 9010
+# > FOR TEMPORARY USES (i.e. DASH) < #
+EXPOSE 9000 9001 9002 9003 9004
 
 # --- RUN ---- #
-CMD ["jupyter", "lab", "--port", "8888"] # BY DEFAULT; see docker-compose.yml
+# Note: ENTRYPOINT is already set in nvidia image so do not modify that.
+CMD ["jupyter", "lab", "--port", "8888"] # see also docker-compose.yml

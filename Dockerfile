@@ -20,7 +20,7 @@ RUN apt-get update && \
                    htop iproute2
                    cmake build-essential curl git \
                    vim less \
-                   python3 python3-distutils python3-dev \
+                   python3 python3-distutils python3-dev
 
 # > NODEJS PREPARE < #
 RUN curl -sL https://deb.nodesource.com/setup_18.x | bash - && \
